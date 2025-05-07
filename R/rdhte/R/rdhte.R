@@ -142,8 +142,8 @@ rdhte <- function(y, x, c = 0, covs.hte = NULL, covs.eff = NULL, p = 1, kernel =
     }
 
     # Run a single regression model with weights
-    rd_est <- fixest::feols(reg_formula_est, weights = kweight, subset = r.bw)
-    rd_inf <- fixest::feols(reg_formula_inf, weights = kweight, subset = r.bw)
+    rd_est <- fixest::feols(reg_formula_est, weights = kweight, subset = r.bw, data = dd)
+    rd_inf <- fixest::feols(reg_formula_inf, weights = kweight, subset = r.bw, data = dd)
 
     # Compute robust variance-covariance matrix
     rd_vcov <- vcovCL(rd_inf, cluster = cluster[r.bw], type = vce.hte)
@@ -299,8 +299,8 @@ rdhte <- function(y, x, c = 0, covs.hte = NULL, covs.eff = NULL, p = 1, kernel =
     }
 
     # Run a single regression model with weights
-    rd_est <- fixest::feols(reg_formula_est, weights = kweight, subset = r.bw)
-    rd_inf <- fixest::feols(reg_formula_inf, weights = kweight, subset = r.bw)
+    rd_est <- fixest::feols(reg_formula_est, weights = kweight, subset = r.bw, data = dd)
+    rd_inf <- fixest::feols(reg_formula_inf, weights = kweight, subset = r.bw, data = dd)
 
     # Compute robust variance-covariance matrix
     rd_vcov <- vcovCL(rd_inf, cluster = cluster[r.bw], type = vce.hte)
